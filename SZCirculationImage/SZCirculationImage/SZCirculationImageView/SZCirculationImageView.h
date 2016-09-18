@@ -35,7 +35,7 @@ typedef NS_ENUM(NSInteger, SZTitleViewStatus){
 /**
  *  是否隐藏页面控件，默认为 NO
  */
-@property (nonatomic, assign) BOOL hidePageControl;
+@property (nonatomic, assign) BOOL hiddenTitleView;
 
 /**
  *  页面控件位置，默认是底部显示pagecontrol

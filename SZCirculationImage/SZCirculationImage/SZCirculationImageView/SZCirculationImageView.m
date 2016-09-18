@@ -61,8 +61,11 @@
 
 - (instancetype)initWithFrame:(CGRect)frame andImageNamesArray:(NSArray *)array andPlaceImage:(UIImage *)placeImage andTitles:(NSArray *)titles {
     
+    NSAssert(array.count > 2, @"图片的数量不能少于3张");
+    if (titles != nil || titles.count > 0) {
+        NSAssert(array.count == titles.count, @"图片和名称数组数量不对应");
+    }
     self = [super initWithFrame:frame];
-    
     if (self) {
         self.index = 0;
         self.isURL = NO;
@@ -91,6 +94,10 @@
 
 - (instancetype)initWithFrame:(CGRect)frame andImageURLsArray:(NSArray *)array andPlaceImage:(UIImage *)placeImage andTitles:(NSArray *)titles {
     
+    NSAssert(array.count > 2, @"图片的数量不能少于3张");
+    if (titles != nil || titles.count > 0) {
+        NSAssert(array.count == titles.count, @"图片和名称数组数量不对应");
+    }
     self = [super initWithFrame:frame];
     if (self) {
         self.index = 0;
@@ -181,9 +188,9 @@
     self.rightImageView.contentMode = _imageContentMode;
 }
 
-- (void)setHidePageControl:(BOOL)hidePageControl {
+- (void)setHiddenTitleView:(BOOL)hiddenTitleView {
     
-    self.pageControl.hidden = hidePageControl;
+    self.titleView.hidden = hiddenTitleView;
 }
 
 - (void)setDefaultPageColor:(UIColor *)defaultPageColor {
